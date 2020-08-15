@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "react-dom";
 import SearchParams from "./SearchParams";
-import Details from "./Details";
+import { DetailsWithErrorBoundaries } from "./Details";
 import { Router, Link } from "@reach/router";
 
 export default function App() {
@@ -13,15 +13,14 @@ export default function App() {
                 </header>
                 <Router>
                     <SearchParams path="/" />
-                    <Details path="/details/:id" />
+                    {/* <ErrorBoundaries path="/details/:id">
+                        <Details />
+                    </ErrorBoundaries> */}
+                    <DetailsWithErrorBoundaries path="/details/:id" />
                 </Router>
             </div>
         </React.StrictMode>
     );
 }
-
-
-
-
 
 render(<App />, document.getElementById("root"));
